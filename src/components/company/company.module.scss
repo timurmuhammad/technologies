@@ -1,0 +1,20 @@
+@import '../../shared/static/utils.scss';
+
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: adaptive(1024, 15, 9);
+    flex: 1 1 auto;
+    min-width: adaptive(1024, 135, 84);
+
+    .logo{
+        //flex: 0 0 adaptive(1024, 72, 22);
+        width: adaptive(1024, 72, 22);
+    }
+    .text{
+        text-wrap: nowrap;
+        font-size: adaptive(1024, 14, 8);
+        line-height: percent(14, 20);
+    }
+}

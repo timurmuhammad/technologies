@@ -1,0 +1,26 @@
+@import '../../shared/static/utils.scss';
+
+.body{
+    display: flex;
+    gap: adaptive(1024, 8, 5);
+    flex: 1 1 auto;
+    //width: fit-content;
+    //height: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: adaptive(1024, 12, 8) adaptive(1024, 30, 18);
+    background-color: #75D6FF;
+    border-radius: 8px;
+
+    .icon{
+        flex: 0 0 adaptive(1024, 20, 16);
+        user-select: none;
+    }
+    .text{
+        font-weight: 700;
+        font-size: adaptive(1024, 13, 10);
+        line-height: percent(13, 19);
+        text-wrap: nowrap;
+        user-select: none;
+    }
+}

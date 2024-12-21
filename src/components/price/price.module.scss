@@ -1,0 +1,20 @@
+@import '../../shared/static/utils.scss';
+
+.body{
+    flex: 0 0 auto;
+    .number{
+        font-family: 'Wix Madefor Display', sans-serif;
+        font-size: adaptive(1024, 24, 17);
+        font-weight: 800;
+        line-height: 26px percent(24, 26);
+        color: #182024;
+        text-wrap: nowrap;
+    }
+
+    .shipping_cost{
+        font-size: adaptive(1024, 14, 10);
+        line-height: 20px;
+        color: #006BB2;
+        text-wrap: nowrap;
+    }
+}

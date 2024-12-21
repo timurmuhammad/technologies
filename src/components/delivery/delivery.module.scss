@@ -1,0 +1,26 @@
+@import '../../shared/static/utils.scss';
+
+.body{
+    flex: 0 0 auto;
+
+    .type{
+        display: flex;
+        gap: adaptive(1024, 6, 4);
+        margin-bottom: adaptive(1024, 12, 6);
+
+        .icon{
+            flex: 0 0 adaptive(1024, 28, 18);
+            width: adaptive(1024, 28, 18);
+        }
+
+        .text{
+            font-size:  adaptive(1024, 16, 12);
+            line-height: percent(16, 22);
+        }
+    }
+
+    .amount{
+        font-size: adaptive(1024, 14, 10);
+        line-height: percent(14, 20);
+    }
+}

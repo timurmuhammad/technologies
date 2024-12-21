@@ -1,0 +1,133 @@
+@import '../../shared//static//utils.scss';
+
+.header{
+    width: 100%;
+    background-color: #003470;
+}
+
+.header__container{
+    height: adaptive(1025, 68, 60);
+    display: flex;
+    align-items: center;
+    gap: adaptive(1367, 30, 15);
+
+    @media (max-width: 767px) {
+    
+    }
+}
+
+
+
+%tpl_burger{
+    display: none;
+    @media (max-width: 767px) {
+        position: relative;
+        z-index: 11;
+        display: block;
+        height: 16px;
+        width: 30px;
+        cursor: pointer;
+        flex: 0 0 auto;
+
+        span,
+        &::before,
+        &::after{
+            left: 0;
+            position: absolute;
+            height: 1.8px;
+            border-radius: 1px;
+            transition: 0.3s;
+            background-color: #ffffff;
+        }
+        &::before,
+        &::after{
+            content: "";
+            width: 100%;
+        }
+
+        span{
+            top: 50%;
+            width: 80%;
+        }
+}}
+.nav_burger{
+    @extend %tpl_burger;
+    span {
+        transform: scale(1) translate(0px, -50%);
+    }
+    &::before{
+        top: 0px;
+    }
+    &::after{
+        bottom: 0px;
+    }
+}
+.nav_burger_active{
+    @extend %tpl_burger;
+
+    span {
+        transform: scale(0) translate(0px, -50%);
+    }
+    &::before{
+        top: 50%;
+        transform: rotate(-45deg) translate(0.9px, -50%);
+    }
+    &::after{
+        bottom: 50%;
+        transform: rotate(45deg) translate(0.9px, 50%);
+    }
+}
+
+
+%tpl_nav_popup{
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 40px 20px 0px 20px;
+    transition: all 0.3s ease 0s;
+    z-index: 10;
+
+    >footer{
+        background: none;
+        >div{
+            min-height: 100vh;
+            >div{
+                flex: 1 1 auto
+            }
+        }
+    }
+
+    .category{
+        padding-left: adaptive(767, 80, 0);
+        padding-top: 20px;
+        >div{
+            display: block;
+            max-width: 300px;
+            >div{
+                
+                >div{
+                    transform: rotate(-90deg)
+                }
+            }
+        }
+    }
+}
+.nav_popup{
+    @extend %tpl_nav_popup;
+    left: -100%;
+}
+.nav_popup_active{
+    @extend %tpl_nav_popup;
+    left: 0px;
+}
+
+.nav__item{
+
+}
+
+.burgerActive{
+
+}

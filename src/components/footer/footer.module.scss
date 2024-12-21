@@ -1,0 +1,112 @@
+@import '../../shared//static//utils.scss';
+
+.wrapper{
+    background: linear-gradient(90deg, #00326b 4.96%, #00183d 89.59%);
+    width: 100%;
+    font-family: 'Manrope', sans-serif;
+    padding: adaptive(1366, 72, 35) 0px adaptive(1366, 36, 14);
+}
+
+.wrapper_container{
+    width: 100%;
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: adaptive(1366, 15, 12);
+}
+
+.body{
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #FAFCFC;
+    gap: adaptive(1366, 114, 36);
+    border-bottom: 1px solid #FAFCFC;
+    padding-bottom: adaptive(1366, 90, 24);
+    flex-wrap: wrap;
+
+    .list{
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+
+        .list__item{
+            font-family: 'Manrope', sans-serif;
+            font-size: adaptive(1366, 16, 12);
+            font-weight: 400;
+            line-height: percent(16,22);
+            &:hover{
+                text-decoration: underline;
+                color: #a4e4ff;
+            }
+        }
+    }
+
+    .list__name{
+        font-family: 'Wix Madefor Display', sans-serif;
+        font-size: adaptive(1366, 18, 16);            ;
+        font-weight: 800;
+        line-height: percent(18,20);
+    }
+
+    .socialMedia{
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        flex: 0 0 auto;
+
+        .socialMedia__body{
+            flex: 0 0 auto;
+            display: inline-flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .list__name{
+            flex: 0 0 auto;
+            font-size: adaptive(1366, 18, 12);     
+        }
+
+        .socialMedia__icon{
+            flex: 0 0 adaptive(1366, 40, 24);
+            width: adaptive(1366, 40, 24);
+
+        }
+    }
+    
+    @media(max-width: 1024px){
+        >div{
+            order: 10;
+        }
+        >a{
+            order: 10;
+        }
+
+        .list{
+            flex: 0 0 calc(30% - adaptive(1366, 114, 36));
+            width: calc(30% - adaptive(1366, 114, 36));
+        }
+
+        .socialMedia{
+            flex-direction: row;
+            align-items: center;
+            transform: translate(0px, 25%);
+        }
+    }
+
+    @media(max-width: 600px){
+        .list{
+            flex: 0 0 calc(100% - adaptive(1366, 114, 36));
+            width: calc(100% - adaptive(1366, 114, 36));
+        }
+    }
+
+}
+
+.bottom_text{
+    font-weight: 400;
+    font-size: adaptive(1366, 14, 10);
+    line-height: percent(14, 20);
+    color: #F2FBFF;
+}

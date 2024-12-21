@@ -1,0 +1,114 @@
+@import '../../shared/static/utils.scss';
+
+.pagination {
+    display: flex;
+    flex: 1 1 100%;
+    padding-top: adaptive(1024, 54, 30);
+    justify-content: center;
+
+    >span:first-child,
+    >a:first-child{
+        flex: 0 0 auto;
+        width: auto;
+        height: auto;
+        padding: 0px adaptive(1024, 10, 6);
+        >img{
+            transform: rotate(180deg);
+        }
+    }
+    >span:last-child,
+    >a:last-child{
+        flex: 0 0 auto;
+        width: auto;
+        height: auto;
+        padding: 0px adaptive(1024, 10, 6);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .wrapper{
+//     flex: 1 1 100%;
+
+//     display: flex;
+//     gap: adaptive(1024, 30, 12);
+//     align-items: center;
+// }
+// .item{
+//     font-size: adaptive(1024, 16, 12);
+//     font-weight: 500;
+//     line-height: percent(16, 22);
+//     color: #4D575C;
+
+//     >div{
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//     }
+
+//     %tpl_number{
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         cursor: pointer;
+//         width: 44px;
+//         height: 44px;
+//         border-radius: 8px;
+//         font-size: 16px;
+//         font-weight: 500;
+//         line-height: 22px;
+//         text-align: center;
+//     }
+//     .number{
+//         @extend %tpl_number;
+//         color: #4D575C;
+//         background-color: none;
+//     }
+//     .number_active{
+//         @extend %tpl_number;
+//         color: #006BB2;
+//         background-color: #F2FBFF;
+//     }
+
+//     .first{
+//         img{
+//             transform: rotate(180deg);       
+//         }
+//     }
+// }
+
+// %tpl_arrow{
+//     flex: 0 0 adaptive(1024, 48, 30);
+//     width: adaptive(1024, 48, 30);
+//     height:  adaptive(1024, 48, 30);
+//     transition: 0.2s;
+//     user-select: none;
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+//     img{
+//         flex: 0 0 adaptive(1024, 4, 12);
+//     }
+// }
+// .switch{
+//     @extend %tpl_arrow;
+//     opacity: 1;
+// }
+// .switch_not_click{
+//     @extend %tpl_arrow;
+//     opacity: 0.5;
+// }

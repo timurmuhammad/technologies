@@ -1,0 +1,34 @@
+@import '../../shared/static/utils.scss';
+
+.body{
+    display: flex;
+    align-items: center;
+    gap: adaptive(1367, 10, 7);
+    flex: 0 0 16px;
+}
+
+%tpl_value{
+    font-family: 'Manrope', sans-serif;
+    font-size: adaptive(1367, 16, 12);
+    line-height: percent(22, 16);
+    cursor: pointer;
+    transition: 0.2s;
+    user-select: none;
+}
+.value{
+    @extend %tpl_value;
+    color: #969FA3;
+
+    @media(max-width: 767px){
+        color: #fff;
+    }
+}
+
+.value_active{
+    @extend %tpl_value;
+    color: #fff;
+
+    @media(max-width: 767px){
+        display: none;
+    }
+}

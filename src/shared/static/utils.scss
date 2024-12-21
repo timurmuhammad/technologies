@@ -1,0 +1,11 @@
+@function adaptive($width, $max, $min) {
+	$min_px: #{$min + px};
+	$max_px: #{$max + px};
+	$width_vw: #{calc(round($max / ($width / 100) * 100000) / 100000) + vw};
+	@return clamp($min_px, $width_vw, $max_px);
+}
+
+@function percent($max, $val) {
+	$result: calc(#{$val * 100% / $max});
+	@return $result;
+}

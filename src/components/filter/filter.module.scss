@@ -1,0 +1,117 @@
+@import '../../shared/static/utils.scss';
+
+.body{
+    display: flex;
+    gap: adaptive(1400, 68, 40);
+    justify-content: center;
+    //flex-wrap: wrap;
+    @media(max-width: 562px){
+        flex-direction: column;
+        row-gap: 12px;
+    }
+    >div{
+        display: flex;
+        gap: adaptive(1400, 68, 40);
+        @media(max-width: 562px){
+            flex: 0 0 100%;
+            justify-content: center;
+        }
+    }
+    .item{
+        .name{
+            font-family: 'Wix Madefor Display', sans-serif;
+            font-size: adaptive(1400, 18, 10);
+            font-weight: 800;
+            line-height: 20px;
+            color: #1F2629;
+            padding-bottom: adaptive(1400, 15, 4);
+        }
+        .change_box{
+            height: adaptive(1400, 44, 32);
+            padding: 0px 12px 0px 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1.5px solid #DCE3E5;
+            flex: 0 0 auto;
+            width: fit-content;
+
+            %tpl_gallery{
+                flex: 0 0 24px;
+                width: adaptive(1400, 24, 16);
+                transition: 0.1s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                &:first-child{
+                    margin-right: adaptive(1400, 10, 2);
+                }
+            }
+            .gallery_icon{
+                @extend %tpl_gallery;
+                filter: saturate(0);
+            }
+            .gallery_icon_active{
+                @extend %tpl_gallery;
+            }
+
+            %tpl_delivery_change{
+                width: 20px;
+                height: 20px;
+                border: 2px solid #0DAAFF;
+                border-radius: 4px;
+                position: relative;
+                cursor: pointer;
+            }
+            .delivery_change{
+                @extend %tpl_delivery_change;
+            }
+            .delivery_change_active{
+                @extend %tpl_delivery_change;
+                &::before{
+                    content: url('../../shared/icons/done.svg');
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -40%);
+                }
+            }
+            .delivery_text{
+                font-size: adaptive(1400, 16, 12);
+                line-height: 22px;
+            }
+            .by_rice_button{
+                padding-right: adaptive(1400, 10, 4);
+                font-size: adaptive(1400, 16, 12);
+                cursor: pointer;
+            }
+            .input{
+                width: 64px;
+                font-size: adaptive(1400, 16, 12);
+            }
+
+            .sorting_text{
+                font-size: adaptive(1400, 16, 12);
+                line-height: 22px;
+                min-width: adaptive(1400, 87.88, 70);
+                cursor: pointer;
+            }
+            .sorting_icons{
+                cursor: pointer;
+                img{
+                    &:first-child{
+                        transform: rotate(180deg);
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+            .sorting_icon{
+                filter: saturate(0)
+            }
+
+        }
+    }
+}
