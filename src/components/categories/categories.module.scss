@@ -79,6 +79,7 @@
             align-items: center;
             gap: adaptive(1024, 8, 4);
             padding: 8px;
+            user-select: none;
             &::before{
                 transform: translate(0px, 10%);
             }

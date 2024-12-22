@@ -25,36 +25,37 @@ export const Filter: React.FC<Props> = memo(({ goods, setGoods, productId, page,
     const [ priceSorting, setPriceSorting ] = useState(false)
 
     useEffect(() => {
-        if (byPrice) {
+        // if (byPrice) {
             const fetchData = async () => {
             const response = await ProductService.getSameProducts(
                 {
-                    page: page,
-                    size: size,
-                    productId: productId,
+                    // page: page,
+                    // size: size,
+                    // productId: productId,
                     flagSort: priceSorting,
                     flagDelivery: shippingSpeed,
                     price: byPrice
                 })
             if (response) {
-                setGoods(response.products)
+                setGoods(response/*.products*/)
             }
         }
             fetchData()
-        } else {const fetchData1 = async () => {
-            const response = await ProductService.getSameProducts(
-                {
-                    page: page,
-                    size: size,
-                    productId: productId,
-                    flagSort: priceSorting,
-                    flagDelivery: shippingSpeed,
-                })
-            if (response) {
-                setGoods(response.products)
-            }
-        }
-        fetchData1()}
+        // } else {const fetchData1 = async () => {
+        //     const response = await ProductService.getSameProducts(
+        //         {
+        //             page: page,
+        //             size: size,
+        //             productId: productId,
+        //             flagSort: priceSorting,
+        //             flagDelivery: shippingSpeed,
+        //         })
+        //     if (response) {
+        //         setGoods(response.products)
+        //     }
+        // }
+        // fetchData1()
+    // }
     }, [shippingSpeed, byPrice, priceSorting])
 
 

@@ -25,6 +25,12 @@
         }
 
         .product{
+            transition: 0.2s;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.1);
+            }
+
             .image{
                 overflow: hidden;
                 aspect-ratio: 1/1;

@@ -12,5 +12,6 @@ export default interface IProduct {
         shipping_cost: number,
         delivery_speed: number,
         name_seller: string,
-        link_product: string
+        link_product: string,
+        categories: string
     }

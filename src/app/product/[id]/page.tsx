@@ -52,9 +52,9 @@ const Product = (({ params }: Props) => {
         { productData && <div className={styles.productId}>
             <div className={styles.image}>
                 <div className={styles.image_item}><img src={productData.image} alt="img" /></div>
-                <Link href={productData.link_production}>
+                <div /*href={productData.link_production}*/>
                     Direct to manufacturer <span>{productData.title.split(' ')[0]}</span>
-                </Link>
+                </div>
             </div>
             <div className={styles.data}>
                 <div className={styles.name_wrapper}>
@@ -91,16 +91,16 @@ const Product = (({ params }: Props) => {
                         <Delivery
                             amount={'2'}
                         ></Delivery>
-                        <Link href={`https:${productData.name_seller}`} 
+                        <div /*href={`https:${productData.name_seller}`} */
                         className={styles.company_wrapper}>
                             <Company
                                 text={productData.name_seller}
                                 image={productData.logo} 
                             ></Company>
-                        </Link>
+                        </div>
                     </div>
                 </div>
-                <Link href={productData.link_product}><Button></Button></Link>
+                <div /*href={productData.link_product}*/><Button></Button></div>
             </div>
         </div>}
 
@@ -116,7 +116,7 @@ const Product = (({ params }: Props) => {
 
         <div className={styles.goods}>
             {goods[0] !== null && goods.map((item: any) => (
-                <div key={item.id} className={styles.product}>
+                <Link href={`/product/${encodeURIComponent(item.id)}`} key={item.id} className={styles.product}>
                     <div className={styles.image}><img src={item.image} alt="img" /></div>                      
                     <NameProduct
                         title={item.title}
@@ -128,14 +128,14 @@ const Product = (({ params }: Props) => {
                     <Delivery
                         amount={item.delivery_speed}
                     ></Delivery>
-                    <Link href={`/product/${encodeURIComponent(item.id)}`}>
+                    {/* <Link href={`/product/${encodeURIComponent(item.id)}`}> */}
                         <Button></Button>
-                    </Link>
-                    <Company
+                    {/* </Link> */}
+                    {/* <Company
                         text={item.name_seller}
                         image={item.logo} 
-                    ></Company>
-                </div>
+                    ></Company> */}
+                </Link>
             ))}                      
         </div>
         <Link href={'/catalog'} className={styles.button_wrapper}><span>Show more</span></Link>

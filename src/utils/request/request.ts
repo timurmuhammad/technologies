@@ -4,7 +4,7 @@ import getFormData from './getFormData';
 
 export default async function request(config: IConfigRequest) {
     const axiosConfig: any = {
-        url: "https://iase24.com" + config.path, // baseUrl базовая ссылка
+        url: "https://658eab4a2871a9866e799292.mockapi.io" + config.path, // baseUrl базовая ссылка
         method: config.method
     }
 

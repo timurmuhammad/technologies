@@ -220,6 +220,12 @@
     }
 
     .product{
+        transition: 0.2s;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+        }
+
         .image{
             overflow: hidden;
             aspect-ratio: 1/1;
@@ -278,4 +284,10 @@
     justify-content: center;
     font-size: clamp(12px, 1.26953vw, 16px);
     font-weight: 700;
+    transition: 0.2s;
+
+    &:hover{
+        background-color: #0DAAFF;
+        color: #ffffff;
+    }
 }

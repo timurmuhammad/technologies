@@ -12,6 +12,7 @@ import { Price } from '@/components/price';
 import { NameProduct } from '@/components/nameProduct';
 import Pagination from '../../components/pagination';
 import { Category } from '@/components/categories';
+import {NoProducts} from '@/components/noProducts'
 
 const Catalog = () => {
     const { searchString, setSearchString } = useContext(TotalContext)
@@ -22,13 +23,14 @@ const Catalog = () => {
     const [ description, setDescription ] = useState<any>()
     const limitPage = 12
 
+
     useEffect(() => {
         if (searchString.length > 0) {
             const fetchData = async () => {
-                const response = await ProductService.search(searchString, currentPage - 1, limitPage)
+                const response = await ProductService.search(searchString/*, currentPage - 1, limitPage*/)
                 if (response) {
-                    setGoods(response.products )
-                    response.pages && setAmountPages(response.pages)
+                    setGoods(response/*.products*/ )
+                    //response.pages && setAmountPages(response.pages)
                 }
                 setSearchString('')
             }
@@ -38,15 +40,11 @@ const Catalog = () => {
     useEffect(() => {
         if (category.length > 0) {
             const fetchData = async () => {
-                const response = await ProductService.getProductsByCategory({
-                    page: currentPage - 1,
-                    size: limitPage,
-                    isParent: category.length === 1,
-                    category: category[category.length - 1]
-                })
+                const response = await ProductService.getProductsByCategory(category[0])
+                console.log(response)
                 if (response) {
-                    setGoods(response.products.data);
-                    response.pages && setAmountPages(response.pages)
+                    setGoods(response);
+                    // response.pages && setAmountPages(response.pages)
                 }
             }
         fetchData()
@@ -55,10 +53,10 @@ const Catalog = () => {
     useEffect(() => {
     if (searchString.length === 0 && category.length === 0) {
         const fetchData = async () => {
-            const response = await ProductService.getAll(currentPage - 1, limitPage)
+            const response = await ProductService.getAll(/*currentPage - 1, limitPage*/)
             if (response) {
-                setGoods(response.products)
-                response.pages && setAmountPages(response.pages)
+                setGoods(response/*.products*/)
+                //response.pages && setAmountPages(response.pages)
             }
         }
         fetchData()
@@ -88,8 +86,10 @@ const Catalog = () => {
 
                 <div className={styles.inner}>
                     <div className={styles.goods}>
-                        {goods.map((item: IProduct) => (
-                            item !== null && <div key={item.id} className={styles.product}>
+                        {goods.length === 0 && <NoProducts></NoProducts>}
+                        {
+                        goods.length > 0 && goods.map((item: IProduct) => (
+                            item !== null && <Link href={`/product/${encodeURIComponent(item.id)}`} key={item.id} className={styles.product}>
                                 <div className={styles.image}><img src={item.image} alt="img" /></div>                      
                                 <NameProduct
                                     title={item.title}
@@ -99,12 +99,13 @@ const Catalog = () => {
                                     price={item.price + ''}
                                     shippingCost={item.shipping_cost + ''}
                                 ></Price>
-                                <Link href={`/product/${encodeURIComponent(item.id)}`}>
+                                {/* <Link href={`/product/${encodeURIComponent(item.id)}`}> */}
                                     <Button></Button>
-                                </Link>
+                                {/* </Link> */}
                                 <p className={styles.offers}>13 offers</p>
-                            </div>
-                        ))}
+                            </Link>
+                        ))
+                    }
     
                         
                     </div>
