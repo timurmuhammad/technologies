@@ -57,7 +57,7 @@ export const Footer: React.FC<Props> = ({ onClickBurger }) => {
 
                     <div className={styles.socialMedia}>
                         <h3 className={styles.list__name}>Follow us</h3>
-                        <div className={styles.socialMedia__body}>
+                        {/* <div className={styles.socialMedia__body}>
                             {socialMedia.map((listItem, index) => (
                                 <Link className={styles.socialMedia__icon} 
                                     onClick={() => onClickBurger && onClickBurger(false)}
@@ -69,7 +69,7 @@ export const Footer: React.FC<Props> = ({ onClickBurger }) => {
                                     </img>
                                 </Link>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
